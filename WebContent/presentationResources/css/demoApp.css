@@ -1,0 +1,106 @@
+ul.nameSearchPossibles, ul.firstNameSearchPossibles, ul.givenNamesSearchPossibles{
+	z-index: 10;
+	position:absolute;
+	min-width:10%;
+	background-color:white;
+	list-style-type:none;
+	text-shadow: none;
+	padding-right:2em;
+	border: solid 1.5px #dcdcdc;
+	box-shadow: 10px 10px 5px #888888;
+    -webkit-padding-start: 10px;
+}
+
+#waiter{
+	display:none;
+	margin-left: 40%;
+	margin-top: 2%;
+	max-width: 45%;
+
+}
+
+#waiter2{
+	display:none;
+	margin-left: 40%;
+	margin-top: -2%;
+	max-width: 45%;
+
+}
+
+.successErrorMsg{
+	  display:none;
+		margin-left: 40%;
+		margin-top: -2%;
+		max-width: 45%;
+}
+
+
+
+ul.nameSearchPossibles li span:hover{
+	z-index: 10;
+	margin-left:-1em !important;
+	padding-left:1em;
+	cursor:pointer;
+	border-radius:2px;
+	/*padding-right:4em; */
+	font-weight: bold;
+
+	/*background: linear-gradient (top, #dfdfdf 0%, #d7d7d7 100%);
+	background: -moz-linear-gradient(top, #dfdfdf 0%, #d7d7d7 100%);
+	background: -webkit-linear-gradient(top, #dfdfdf 0%, #d7d7d7 100%);*/
+}
+
+ul.firstNameSearchPossibles li span:hover{
+	z-index: 10;
+	margin-left:-1em !important;
+	border-radius:2px;
+	cursor:pointer;
+	padding-left:1em;
+
+	/* padding-right:4em; */
+		font-weight: bold;
+
+	/*background: linear-gradient(top, #dfdfdf 0%, #d7d7d7 100%);
+	background: -moz-linear-gradient(top, #dfdfdf 0%, #d7d7d7 100%);
+	background: -webkit-linear-gradient(top, #dfdfdf 0%, #d7d7d7 100%);*/
+}
+
+.note{
+	color:red;
+	max-width:85%;
+	margin-top:1em;
+	margin-left:2em;
+}
+
+ul.givenNamesSearchPossibles li span:hover{
+	z-index: 10;
+	margin-left:-1em !important;
+	border-radius:2px;
+	padding-left:1em;
+	/*padding-right:4em; */
+	cursor:pointer;
+		font-weight: bold;
+
+/*	background: linear-gradient(top, #dfdfdf 0%, #d7d7d7 100%);
+	background: -moz-linear-gradient(top, #dfdfdf 0%, #d7d7d7 100%);
+	background: -webkit-linear-gradient(top, #dfdfdf 0%, #d7d7d7 100%);*/
+}
+
+#searchBook{
+	width:30%;
+	margin-left: 25%;
+	box-shadow: 3px 3px 10px #252728;
+}
+
+#searchAgain{
+	margin-left: 20%;
+	width: 30%;
+	display:none;
+	box-shadow: 3px 3px 10px #252728;
+}
+
+#resetSearch{
+
+	width:30%;
+	box-shadow: 3px 3px 10px #252728;
+}

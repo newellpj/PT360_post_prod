@@ -1,0 +1,506 @@
+
+
+
+.main-box {
+	width: 70%;
+	padding: 10px;
+	margin-left: 16%;
+	/*margin-top: 1%;*/
+	 margin-top:2%;
+	margin-bottom:5%;
+	max-height: auto;
+	/*background: #fff; 	background-color: white; */
+	  background-color: rgba(255, 255, 255, 0.7);
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border: 0px dotted #000;
+	border-radius: 10px 10px 10px 10px;
+/*	box-shadow: 7px 7px 15px #888888;
+	overflow:auto !important; */
+
+	transform: scale(1.0);
+	-webkit-transition: all 300ms 0ms ease-in-out;
+	 transition: all 300ms 0ms ease-in-out;
+}
+
+.scionLogoFooter{
+	/*font-family: 'Lobster', cursive;*/
+	font-size: 1.5rem;
+	
+}
+
+.scionLogoFooter:visited{
+	color: #726f6f !important;
+	text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+
+.scionLogoFooter{
+	color: #726f6f !important;
+}
+
+
+.quote1{
+	  font-size: 2rem;
+		font-style: italic;
+		margin-top: -20%;
+		margin-bottom:10%;
+		margin-left: 30%;
+		width: 30%;
+}
+
+.quote2{
+	  font-size: 2rem;
+		font-style: italic;
+		margin-top: -15%;
+		margin-bottom:5%;
+		margin-left: 5%;
+		width: 20%;
+}
+
+
+
+.scalable{
+		font-size:4rem;
+		font-weight: normal;
+		font-style: normal;
+}
+
+
+
+.customizable{
+	  position:relative;
+		top: -10px;
+		left: 100px;
+		font-size:3rem;
+		font-weight: normal;
+		font-style: normal;
+}
+
+.enterpriseWideSolution{
+	  position:relative;
+		top: -40px;
+		left: 150px;
+		font-size:3rem;
+		font-weight: normal;
+		font-style: italic;
+}
+
+.lightweight{
+		position:relative;
+		top: -80px;
+		left: 205px;
+		font-size:2rem;
+		font-weight: normal;
+		font-style: normal;
+}
+
+
+
+.carouselAndBuzzSection{
+   max-width:50%;
+	 margin-left: 40%;
+	 margin-top: -45%;
+}
+
+.bx-viewport{
+	border-radius: 10px;
+}
+
+.bxslider li img{
+	  width: 190px !important;
+		height: 190px !important;
+}
+
+.bxslider li{
+	max-height: auto !important;
+	width: 220px !important;
+	position:relative;
+	margin-left: 8px;
+
+
+}
+
+div.bxCaption{
+	  width: 80% !important;
+	  font-family: 'Roboto Condensed',sans-serif !important;
+		background: rgba(80, 80, 80, 0.5) !important;
+}
+
+.bxslider2 li{
+	max-height: auto !important;
+	width: 220px !important;
+	position:relative;
+	padding-left:10px;
+}
+
+section{
+	display:block;
+	margin-top: 2%;
+	margin-bottom: 2%;
+  color: #565353;
+}
+
+section.performanceTracking{
+		background: url(../images/performance.jpg);
+		background-size: 100px 100px !important;
+		background-repeat: no-repeat;
+}
+
+section.personalDetails{
+		background: url(../images/perDet.jpg);
+		background-size: 100px 100px !important;
+		background-repeat: no-repeat;
+}
+
+section.orgGoalsMatching{
+		background: url(../images/orgGoals.jpg);
+		background-size: 100px 100px !important;
+		background-repeat: no-repeat;
+}
+
+section.performReviewOnline{
+		background: url(../images/performReview.jpg);
+		background-size: 100px 100px !important;
+		background-repeat: no-repeat;
+}
+
+
+.sectionContent{
+	  margin-left: 11%;
+		width: 20%;
+}
+
+.contactUs{
+		box-shadow: 5px 5px 10px #252728 ;
+}
+
+.errorEmail{
+	margin-left: 15%;
+	margin-bottom:2%;
+	color:red;
+}
+
+.errorName{
+	margin-left: 15%;
+	margin-bottom:2%;
+	color:red;
+}
+
+.errorEnq{
+	margin-left: 15%;
+	margin-bottom:2%;
+	color:red;
+}
+
+form.contactForm{
+    margin-left: 55%;
+		margin-top: -50%;
+		margin-bottom: 5%;
+	  position: static;
+}
+
+.contactForm h3{
+	margin-bottom: 5%;
+
+}
+
+.contactImg img{
+	margin-left:25%;
+	border-radius: 5px;
+	width:280px;
+	height:105px;
+	margin-bottom:5%;
+	/*box-shadow: 5px 5px 10px #252728 ;*/
+}
+
+.culture img{
+	margin-left: 5%;
+	margin-bottom:5%;
+	border-radius: 5px;
+	margin-top:5%;
+	width: 230px;
+	height: 190px;
+
+	/*box-shadow: 5px 5px 10px #252728 ;*/
+}
+
+.culture2 img{
+	margin-left: 30%;
+	border-radius: 5px;
+	margin-top:0%;
+	width: 230px;
+	height: 190px;
+	/*box-shadow: 5px 5px 10px #252728 ;*/
+}
+
+.contactForm button{
+	width: 70%;
+	margin-bottom: 2%;
+	margin-left: 15%;
+
+}
+
+#contactDetName{
+   /*padding: 14px 16px; */
+	  width: 70%;
+    margin-left: 15%;
+	 	margin-bottom: 1%;
+}
+
+#contactDetEmail{
+    width: 70%;
+	 	margin-bottom: 1%;
+		margin-left: 15%;
+}
+
+#contactDetPhone{
+    width: 70%;
+		margin-bottom: 2%;
+		margin-left: 15%;
+}
+
+#contactDetMessage{
+    width: 70%;
+		margin-bottom: 1%;
+		margin-left: 15%;
+		border_radius:
+}
+
+.pageHeaderLogo{
+
+		font-family: 'Playfair Display', serif;
+		font-weight: bold;
+		font-style: normal;
+		width:33%;
+		font-size:3rem;
+		color: #514c4c;
+		margin-bottom: 1%;
+	/*border-bottom: dotted 1px;*/
+}
+
+.mainSpiel{
+	 max-width: 50%;
+	 margin-top:2%;
+	 margin-bottom:5%;
+	 color: #726f6f;
+	 font-weight:normal;
+	 /* text-shadow: 1px 1px 1px #a8a8a8 ;*/
+}
+
+.mainSpiel h2{
+	 font-size: 2rem;
+}
+
+.aboutUsSpiel {
+	  margin-top: 2%;
+		max-width:50%;
+}
+
+.profileHeading{
+	 max-width: 80%;
+	 margin-top:2%;
+	 margin-bottom:5%;
+	 color: #726f6f;
+	 font-weight:normal;
+	 /* text-shadow: 1px 1px 1px #a8a8a8 ;*/
+}
+
+.profileHeading h3{
+	 font-size: 1.2em;
+}
+
+.pageHeaderLogo span{
+
+	color:#b20000;
+}
+
+.welcomeTab{
+	width: 100%;
+	min-width:100%;
+	margin-left:4em;
+}
+
+.spacerForWelcomeTab{
+		margin-bottom: 6%;
+}
+
+hiddenH1{
+
+}
+
+
+body {
+   background-image: url("../images/hr2b.jpg");
+		background-color: #34424b;
+    background-position: center top;
+		background-size: auto;
+		background-repeat: no-repeat;
+		background-attachment: scroll;
+}
+
+div.surnameAndDept{
+	width:100%;
+	display:inline-block;
+	margin-top: 2%;
+	margin-left: 2%;
+}
+
+div.firstnamePosition{
+	width:100%;
+	display:inline-block;
+	margin-top: 2%;
+	margin-left: 2%;
+}
+
+div.givenNamesSkillset{
+	width:100%;
+	display:inline-block;
+	margin-top: 2%;
+	margin-left: 2%;
+}
+
+.depSelect{
+	 margin-left: 0%;
+}
+
+.positionSelect{
+	 margin-left: 3.4% !important;
+}
+
+.skillsetSelect{
+	 margin-left: 3.8% !important;
+}
+
+.checks{
+  margin-left: 2% !important;
+}
+
+
+html, body {position: relative !important;}
+
+
+.errorLabel{
+   color:red;
+	 display: none;
+	 padding: 5px;
+   min-width:80%;
+   margin-left:0 !important;
+}
+
+element{
+	margin-left: 0;
+}
+
+
+
+/* Style the list */
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+     background-color: rgba(196, 192, 192, 0.5) !important;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px #252728;
+    /*background-color: #f1f1f1;  rgba(101, 101, 101, 0.6)*/
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {background-color: #ddd;}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+
+  /*  border: 1px solid #ccc;*/
+    border-top: none;
+}
+
+
+
+
+.loginButton{width:80%; margin-top:1em; margin-left:4em;}
+
+.retLoginButton{width:95%; margin-top:1em; margin-left:1em;}
+
+@media screen and (max-width:1600px){
+	 .login-box.responsive {position: relative; padding:0.5em;margin-left:20%; width:50%;}
+	div#loginFields.loginFields.responsive{margin-left:1em;}
+}
+
+
+@media screen and (max-width:1400px){
+	 .login-box.responsive {position: relative; padding:0.5em;margin-left:20%; width:50%;}
+	div#loginFields.loginFields.responsive{margin-left:1em;}
+}
+
+@media screen and (max-width:980px){
+ .login-box.responsive {position: relative; padding:0.5em;margin:1em; width:95%;}
+ button.loginButton.responsive{margin-left:2em; width:80%;}
+ .login-box.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+  }
+}
+
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
+@media screen and (max-width:680px) {
+
+  	div#loginFields.loginFields.responsive{margin-top: 0em;}
+   div.logoimg.responsive{display:none;}
+
+ ul.topnav.responsive {position: relative; padding:0;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+
+
+@media screen and (max-width:580px){
+	 button.loginButton.responsive{margin-left:2em; width:80%;}
+}
+
+@media screen and (max-width:420px){
+	 button.loginButton.responsive{margin-left:1em; width:93%;}
+}

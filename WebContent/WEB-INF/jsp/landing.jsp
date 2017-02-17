@@ -107,7 +107,7 @@
 </div>
 
 
-    <a class="scionLogoFooter" href="http://www.scionsolutionsgroup.com/" target="_blank"> by Scion Solutions Group  	&copy; 2017</a>
+    <a class="scionLogoFooter" href="http://www.scionsolutionsgroup.com/" target="_blank"> Scion Solutions Group  	&copy; 2017</a>
 	</div>
 
 

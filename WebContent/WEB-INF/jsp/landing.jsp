@@ -21,47 +21,34 @@
 <script type="text/javascript" src="./presentationResources/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="./presentationResources/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="./presentationResources/js/angular.min.js"></script>
-<script type="text/javascript" src="./presentationResources/js/landing.min.js"></script>
-<script type="text/javascript" src="./presentationResources/js/landingAboutUs.min.js"></script>
-<script type="text/javascript" src="./presentationResources/js/landingMainAppDemoSupp.min.js"></script>
-<script type="text/javascript" src="./presentationResources/js/landingMainAppDemo.min.js"></script>
+<script type="text/javascript" src="./presentationResources/js/landing.js"></script>
+<script type="text/javascript" src="./presentationResources/js/landingAboutUs.js"></script>
+<script type="text/javascript" src="./presentationResources/js/landingMainAppDemoSupp.js"></script>
+<script type="text/javascript" src="./presentationResources/js/landingMainAppDemo.js"></script>
 <script type="text/javascript" src="./presentationResources/js/jquery.bxslider.min.js"></script>
 
 <title>Personnel Tracker</title>
 <style>
-
-
-
 </style>
 
 <script>
-
 	 if (top.location!= self.location) {
-
 		var href = self.location.href;
-
 	    top.location = self.location.href;
 	 }
-
 	 $(document).ready(function(){
-
 					 document.getElementById("openByDefault").click();
 					 $('.bxslider').bxSlider({
 							captions: true
 					 });
-
           var bxViewportHeight = $(".bx-viewport").height();
           console.log("height : "+bxViewportHeight);
-
           if(bxViewportHeight < 300){
               $(".carouselAndBuzzSection").css("margin-bottom", "20%");
           }else{
               $(".carouselAndBuzzSection").css("margin-bottom", "0%");
           }
-
     });
-
-
 </script>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">

@@ -21,10 +21,10 @@
 <script type="text/javascript" src="./presentationResources/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="./presentationResources/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="./presentationResources/js/angular.min.js"></script>
-<script type="text/javascript" src="./presentationResources/js/landing.js"></script>
-<script type="text/javascript" src="./presentationResources/js/landingAboutUs.js"></script>
-<script type="text/javascript" src="./presentationResources/js/landingMainAppDemoSupp.js"></script>
-<script type="text/javascript" src="./presentationResources/js/landingMainAppDemo.js"></script>
+<script type="text/javascript" src="./presentationResources/js/landing.min.js"></script>
+<script type="text/javascript" src="./presentationResources/js/landingAboutUs.min.js"></script>
+<script type="text/javascript" src="./presentationResources/js/landingMainAppDemoSupp.min.js"></script>
+<script type="text/javascript" src="./presentationResources/js/landingMainAppDemo.min.js"></script>
 <script type="text/javascript" src="./presentationResources/js/jquery.bxslider.min.js"></script>
 
 <title>Personnel Tracker</title>

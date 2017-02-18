@@ -1,7 +1,10 @@
 
 var thisGroupData = [];
 
-var initialemployeeModelData = []
+var initialemployeeModelData = []  //this variable is concated on pagination wo we
+                                   //will need to transition to another page at some time
+                                   //otherwise this global could eventually
+                                   //cause client memory to max out.
 
 var employeeSearchData = [];
 
@@ -229,6 +232,8 @@ function matchSideBarToSearchResultsSection(){
          initialemployeeModelData = initialemployeeModelData.concat(data); //add the returned paginated data
                                                                            //to initial search employee data so
                                                                            //if user selects facets we can return the last paginated data
+                                                                           //will need to transition to another page at some time otherwise this global could eventually
+                                                                           //cause client memory to max out.
           console.log("data length returned ::: "+data.length);
 
             employeeSearchData = data;
@@ -293,9 +298,6 @@ function attachScroll(data){
                 }
              }
          }
-
-
-
    });
 
  }

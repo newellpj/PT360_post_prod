@@ -3,8 +3,6 @@ package co.srsp.hibernate;
 import java.util.HashMap;
 import java.util.List;
 
-import co.srsp.hibernate.orm.BookReviews;
-import co.srsp.hibernate.orm.Books;
 import co.srsp.hibernate.orm.CompanyPositions;
 import co.srsp.hibernate.orm.Employee;
 

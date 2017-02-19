@@ -10,9 +10,9 @@ import co.srsp.hibernate.orm.Employee;
 
 
 public interface CompanyPositionsBusinessObject {
-	public void save(BookReviews bookReviews);
-	public void update(BookReviews bookReviews);
-	public void delete(List<BookReviews> bookReviews);
+	public void save(CompanyPositions companyPositions);
+	public void update(CompanyPositions companyPositions);
+	public void delete(List<CompanyPositions> companyPositions);
 	
 	/**
 	 * gets book by title and/or author. If author is null it will just search on title.

@@ -2,19 +2,12 @@ package co.srsp.hibernate;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
-import org.hibernate.Session;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
-import co.srsp.controller.PaginationController;
-import co.srsp.hibernate.orm.BookReviews;
-import co.srsp.hibernate.orm.Books;
 import co.srsp.hibernate.orm.CompanyPositions;
 import co.srsp.hibernate.orm.Employee;
 
@@ -25,19 +18,19 @@ public class CompanyPositionsBusinessObjectImpl extends HibernateDaoSupport impl
 	private final static Logger log = Logger.getLogger(CompanyPositionsBusinessObjectImpl.class);
 
 	@Override
-	public void save(BookReviews bookReviews) {
+	public void save(CompanyPositions companyPositions) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void update(BookReviews bookReviews) {
+	public void update(CompanyPositions companyPositions) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delete(List<BookReviews> bookReviews) {
+	public void delete(List<CompanyPositions> companyPositions) {
 		// TODO Auto-generated method stub
 		
 	}

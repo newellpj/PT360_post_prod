@@ -94,7 +94,7 @@
 </div>
 
 <br/>
-    <a class="scionLogoFooter" href="http://www.scionsolutionsgroup.com/" target="_blank"> Scion Solutions Group  	&copy; 2017</a> Not supported in IE11 and previous versions.
+    <a class="scionLogoFooter" href="http://www.scionsolutionsgroup.com/" target="_blank"> Scion Solutions Group  	&copy; 2017</a> &nbsp; &nbsp; ><i>Not supported in IE11 and previous versions.</i>
 	</div>
 
 

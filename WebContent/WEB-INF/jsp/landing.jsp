@@ -5,7 +5,10 @@
 <html  ng-app="landingApp" >
 <head>
 
+<link rel="stylesheet" type="text/css" href="./presentationResources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="./presentationResources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./presentationResources/css/bootstrap-custom.css">
+<link rel="stylesheet" type="text/css" href="./presentationResources/css/font-awesome.css">
 <link rel="stylesheet" type="text/css" href="./presentationResources/css/responsive.css">
 <link rel="stylesheet" type="text/css" href="./presentationResources/css/myStyles.css">
 <link rel="stylesheet" type="text/css" href="./presentationResources/css/landing.css">
@@ -14,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="./presentationResources/css/searchFacets.css">
 <link rel="stylesheet" type="text/css" href="./presentationResources/css/customFont.css">
 <link rel="stylesheet" type="text/css" href="./presentationResources/css/jquery.bxslider.css">
+
 
 
  <link rel="shortcut icon" href="./presentationResources/images/favicon.png" type="image/x-icon">
@@ -90,7 +94,7 @@
 </div>
 
 
-    <a class="scionLogoFooter" href="http://www.scionsolutionsgroup.com/" target="_blank"> Scion Solutions Group  	&copy; 2017</a>
+    <a class="scionLogoFooter" href="http://www.scionsolutionsgroup.com/" target="_blank"> Scion Solutions Group  	&copy; 2017</a> Not supported in IE11 and previous versions.
 	</div>
 
 

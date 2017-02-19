@@ -57,30 +57,7 @@ public class SearchingPageController {
 		return model;
 	}
 	
-	@RequestMapping(value = { "/reviewsAddBook"}, method = RequestMethod.GET)
-	public ModelAndView addBookPage() {
-		log.info("we getting in here reviewsAddBook?");
-		ModelAndView model = new ModelAndView();		
-		model.setViewName("reviewsAddBook");
-		return model;
-	}
-	
-	@RequestMapping(value = { "/searchNASA"}, method = RequestMethod.GET)
-	public ModelAndView addSearchAllPage() {
-		log.info("we getting in here searchNASA page?");
-		ModelAndView model = new ModelAndView();		
-		model.setViewName("searchNASA");
-		return model;
-	}
 
-	@RequestMapping(value = { "/reviewsSearchBook"}, method = RequestMethod.GET)
-	public ModelAndView addSearchPage() {
-		log.info("we getting in here reviewsSearchBook?");
-		ModelAndView model = new ModelAndView();		
-		model.setViewName("reviewsSearchBook");
-		return model;
-	}
-	
 
 	
 	

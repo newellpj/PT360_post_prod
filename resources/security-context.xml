@@ -14,6 +14,7 @@
      <security:intercept-url pattern="/loginSignup" access="permitAll" /> 
      <security:intercept-url pattern="/sendEnquiry" access="permitAll" />  
      <security:intercept-url pattern="/getSkillsets" access="permitAll" /> 
+     <security:intercept-url pattern="/aboutUs" access="permitAll" /> 
      <security:intercept-url pattern="/getOrgDepts" access="permitAll" />
      <security:intercept-url pattern="/getEmployeePerformanceDetails" access="permitAll" />     
      <security:intercept-url pattern="/getCompanyPositions" access="permitAll" /> 

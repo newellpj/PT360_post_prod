@@ -27,6 +27,8 @@ public interface EmployeeBusinessObject {
 	
 	public  List<Employee> findEmployeePartialSurnameMatch(String surnamePartial,  int offset, int numberOfRecords);
 	
+	public  EmployeeFacetWrapperModel  findEmployeesFullProfileLazyLoad(HashMap<String, String> searchCriteria, int offset, int numberOfRecords);
+	
 	public  EmployeeFacetWrapperModel findEmployeesByAnyCriteriaLazyLoad(HashMap<String, String> searchCriteria, int offset, int numberOfRecords);
 
 	public EmployeeModel findEmployeePerformanceDetails(EmployeeModel empModel);

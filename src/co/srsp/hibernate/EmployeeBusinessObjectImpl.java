@@ -123,6 +123,8 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 	}
 	
 	
+	 
+	
 	/**
 	 * when we already have the employee model build a list of supplementary data
 	 * @param list
@@ -174,6 +176,11 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 		return empModel;
 	}
 
+	
+	@Override
+	public  EmployeeFacetWrapperModel  findEmployeesFullProfileLazyLoad(HashMap<String, String> searchCriteria, int offset, int numberOfRecords){
+		return null;
+	}
 
 	@Override
 	public  EmployeeFacetWrapperModel  findEmployeesByAnyCriteriaLazyLoad(HashMap<String, String> searchCriteria, int offset, int numberOfRecords){

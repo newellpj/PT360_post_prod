@@ -132,7 +132,7 @@ public class SearchingPageController {
 	         message = new MimeMessage(session);
 
 	         // Set From: header field of the header.
-	         message.setFrom(new InternetAddress(from));
+	         message.setFrom(new InternetAddress("pauljamesnewell@gmail.com"));
 
 	         // Set To: header field of the header.
 	         
@@ -147,26 +147,12 @@ public class SearchingPageController {
 
 	         // Now set the actual message
 	         message.setText(senderMessage);
-             
-	         // Send message
-
-	         
-	         //message = new MimeMessage(session);
-	        // message.setFrom(new InternetAddress("info@scionsolutionsgroup.com"));
-	       //  message.addRecipient(Message.RecipientType.TO, new InternetAddress(sendersEmail));
-	        // message.setText(thankYouMsg);
 	         transport = session.getTransport();
-	         message.setContent(senderMessage, "text/html");
+	         message.setContent(senderMessage+" - email address of : "+from, "text/html");
 	         message.setSubject("Enquiry for services from "+name);
 	         transport.connect("email-smtp.eu-west-1.amazonaws.com", "AKIAJLUU55MYI3JAERLA", "AkvHjVF0CpPvhbZkbgkoWnndDR5xhhLl/P1GD/RxK3+L");
 	         transport.sendMessage(message, message.getAllRecipients());
-	         //Transport.send(message);
-	         //transport.close();
-	         
-//	         transport = session.getTransport("smtp");
-//	         transport.connect(host, "pauljamesnewell@gmail.com", "5803871x");
-//	         transport.sendMessage(message, message.getAllRecipients());
-//	         transport.close();
+
 	       
 	         System.out.println("Sent message successfully....");
 	         
@@ -196,15 +182,13 @@ public class SearchingPageController {
 	         
 	         log.info("image abs path? : "+file.getAbsolutePath());
 	         message = new MimeMessage(session);
-	         message.setFrom(new InternetAddress(from)); //info@honeybadgerit.net
+	         message.setFrom(new InternetAddress("pauljamesnewell@gmail.com")); //info@honeybadgerit.net
 	         message.addRecipient(Message.RecipientType.TO, new InternetAddress(sendersEmail));
-	        // message.setText(thankYouMsg);
 	         message.setContent(thankYouMsg, "text/html");
 	         message.setSubject("Thank you for your enquiry");      
-	         //transport.connect("email-smtp.eu-west-1.amazonaws.com", "AKIAJLUU55MYI3JAERLA", "AkvHjVF0CpPvhbZkbgkoWnndDR5xhhLl/P1GD/RxK3+L");
+	       
 	         transport.sendMessage(message, message.getAllRecipients());
-	         //Transport.send(message);
-	         //transport.close();
+
 	         
 	      }catch (Exception mex) {
 	    	  log.error(" messed it up : "+mex.getMessage());

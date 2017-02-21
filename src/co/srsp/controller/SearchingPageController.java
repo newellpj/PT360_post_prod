@@ -150,9 +150,9 @@ public class SearchingPageController {
 	         log.info("thankYouMsg :::: "+thankYouMsg);
 	         log.info("image exists? : "+file.exists());
 	         
-//	         if(!file.exists()){
-//	        	 logoPath =  ConfigHandler.getInstance().readApplicationProperty("urlRootDev")+"/presentationResources/images/";
-//	         }
+	         if(!file.exists()){
+	        	 logoPath =  ConfigHandler.getInstance().readApplicationProperty("urlRootDev")+"/presentationResources/images/";
+	         }
 
 	         thankYouMsg = thankYouMsg.replace(":path:", logoPath);
 	         thankYouMsg = thankYouMsg.replace(":name:", name);

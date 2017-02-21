@@ -55,7 +55,7 @@ function displayFacetCheckboxSelection(){
              success: function(data) {
 
                  console.log("data length returned ::: "+data.length);
-
+                 employeeSearchData = data; 
                   reAddSarchContent(data);
 
                  },

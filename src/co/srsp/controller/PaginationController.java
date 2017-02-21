@@ -64,6 +64,14 @@ public class PaginationController {
 		
 		Object obj = request.getSession().getAttribute(SessionConstants.EMPLOYEE_FULL_PROFILE_LIST);
 		
+		if(obj == null && amountToPaginate == 0){ //means user full paginated result set and is switching facet searching on and off in current search result set
+			obj = request.getSession().getAttribute(SessionConstants.EMPLOYEE_FULL_PROFILE_LIST_FOR_FACET_SEARCHING);
+			
+			log.info(request.getSession().getId());
+			log.info("obj was null so grab facet obj ::: "+obj);
+		}
+		
+		
 	   EmployeeModel [] model = null;
 		
 		if(obj == null){
@@ -127,10 +135,13 @@ public class PaginationController {
 			//request.getSession().setAttribute(SessionConstants.EMPLOYEE_FULL_PROFILE_LIST, list); //this would be setting the sublist which we don't wish to do
 			request.getSession().setAttribute(SessionConstants.CURRENT_PAGINATION_OFFSET, currentPaginationOffset + amountToPaginate);
 			if((currentPaginationOffset + amountToPaginate) >  completeList.size()){
+				
+				log.info("sticking complete list in facet list : "+completeList.size());
+				log.info(request.getSession().getId());
+				request.getSession().setAttribute(SessionConstants.EMPLOYEE_FULL_PROFILE_LIST_FOR_FACET_SEARCHING, completeList);
 				request.getSession().setAttribute(SessionConstants.EMPLOYEE_FULL_PROFILE_LIST, null);
 			}
-			
-			log.info("");
+
 			
 
 			
@@ -143,8 +154,8 @@ public class PaginationController {
 					//booksLists2.add(formattedSearchListItem(empModel));
 				}
 			}	
-		
-			
+			log.info("22222222222222 sticking complete list in facet list : "+completeList);
+			log.info("22222222222222 sticking complete list in facet list : "+completeList.size());
 			return model;
 		}
 	}

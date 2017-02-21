@@ -179,6 +179,13 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 	
 	@Override
 	public  EmployeeFacetWrapperModel  findEmployeesFullProfileLazyLoad(HashMap<String, String> searchCriteria, int offset, int numberOfRecords){
+		
+		log.info("findEmployeesFullProfileLazyLoad ^^^^");
+		Session session = this.getSessionFactory().openSession();
+		List<Employee> employeeList = session.createCriteria(Employee.class).list();
+		
+
+		
 		return null;
 	}
 

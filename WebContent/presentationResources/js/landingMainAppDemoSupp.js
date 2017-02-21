@@ -1,10 +1,6 @@
 
 var thisGroupData = [];
 
-var initialemployeeModelData = []  //this variable is concated on pagination wo we
-                                   //will need to transition to another page at some time
-                                   //otherwise this global could eventually
-                                   //cause client memory to max out.
 
 var employeeSearchData = [];
 
@@ -42,46 +38,49 @@ function displayFacetCheckboxSelection(){
                       }
                     }
                  }
+
+                 document.getElementById("search").style.display = "inline";
+                 //now format the search list to display to user
+
+                 reAddSarchContent(duplicatesRemovedList);
+
              }
         });
 
 
     if(!checkedFound){  //re-display original search set before any facets were selected
         facetChecked = false;
-        /* for(var i = 0; i <  thisGroupData.length; i++){
-           for(var j = 0; j < facetList.length; j++){
-             if(facetList[j]['facetCount'] > 0){
-                 console.log("employees matched against facet list : "+facetList[j]['employeesMatchedAgainstFacetCategory'].length+" :: "+
-                 facetList[j]['employeesMatchedAgainstFacetCategory'][0]['employeeSurname']);
-                 duplicatesRemovedList = duplicatesRemovedList.concat(facetList[j]['employeesMatchedAgainstFacetCategory']);
-                 console.log("duplicate list before : "+duplicatesRemovedList.length);
-                   duplicatesRemovedList = testForDuplicates(duplicatesRemovedList);
-                 console.log("duplicate list after : "+duplicatesRemovedList.length);
-             }
-           }
-         }*/
-         duplicatesRemovedList =initialemployeeModelData;
 
+         $.ajax('retrieveAgainLastViewedDataset', {
+             success: function(data) {
+
+                 console.log("data length returned ::: "+data.length);
+
+                  reAddSarchContent(data);
+
+                 },
+               error: function() {
+                   console.log('An error occurred');
+               }
+            });
       }
-
-
-            document.getElementById("search").style.display = "inline";
-            //now format the search list to display to user
-
-            $(".bookRevList").empty();
-
-            for(var k = 0; k < duplicatesRemovedList.length; k++){
-
-                 console.log("employee data model object :: "+duplicatesRemovedList[k]['employeeSurname']);
-                 var formattedContent = "<div class='searchSegment'>"+formatSearchContent(duplicatesRemovedList[k], null)+"</div>";
-                 $('.bookRevList').append(formattedContent);
-                // attachScroll();
-            }
-
-
 }
 
+function reAddSarchContent(duplicatesRemovedList){
+  document.getElementById("search").style.display = "inline";
+  //now format the search list to display to user
 
+  $(".bookRevList").empty();
+
+  console.log("emptied and data list length is : "+duplicatesRemovedList.length);
+
+  for(var k = 0; k < duplicatesRemovedList.length; k++){
+       console.log("employee data model object :: "+duplicatesRemovedList[k]['employeeSurname']);
+       var formattedContent = "<div class='searchSegment'>"+formatSearchContent(duplicatesRemovedList[k], null)+"</div>";
+       $('.bookRevList').append(formattedContent);
+      // attachScroll();
+  }
+}
 
 function testForDuplicates(arr){
 
@@ -229,31 +228,26 @@ function matchSideBarToSearchResultsSection(){
      $.ajax('retrieveNextPaginatedResults', {
            success: function(data) {
 
-         initialemployeeModelData = initialemployeeModelData.concat(data); //add the returned paginated data
-                                                                           //to initial search employee data so
-                                                                           //if user selects facets we can return the last paginated data
-                                                                           //will need to transition to another page at some time otherwise this global could eventually
-                                                                           //cause client memory to max out.
-          console.log("data length returned ::: "+data.length);
+                console.log("data length returned ::: "+data.length);
 
-            employeeSearchData = data;
-            for(var i = 0; i < data.length; i++){
+                employeeSearchData = data;
+                for(var i = 0; i < data.length; i++){
 
 
-                console.log(data[i]);
-                var formattedContent = "<div class='searchSegment responsive'>"+formatSearchContent(data[i])+"</div>"
+                    console.log(data[i]);
+                    var formattedContent = "<div class='searchSegment responsive'>"+formatSearchContent(data[i])+"</div>"
 
-                $('.bookRevList').append(formattedContent);
+                    $('.bookRevList').append(formattedContent);
 
-            }
+                }
 
-            if(data == undefined || data == null || data.length < 1){
-            //    detachScroll();
-                $('.ajax-loader-2').remove();
-            }else{
-              $('.ajax-loader-2').remove();
-                detachScroll();
-            }
+                if(data == undefined || data == null || data.length < 1){
+                //    detachScroll();
+                    $('.ajax-loader-2').remove();
+                }else{
+                  $('.ajax-loader-2').remove();
+                    detachScroll();
+                }
 
 
            },

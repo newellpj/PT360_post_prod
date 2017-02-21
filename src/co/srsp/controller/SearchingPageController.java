@@ -95,17 +95,7 @@ public class SearchingPageController {
 
 	      // Get system properties
 	      Properties properties = System.getProperties();
-
-	      // Setup mail server
-	     // properties.setProperty("mail.smtp.host", host);
-	      //properties.setProperty("mail.transport.protocol", "aws");
-	      //properties.setProperty("mail.aws.user", credentials.getAWSAccessKeyId());
-	      //properties.setProperty("mail.aws.password", credentials.getAWSSecretKey());
-	      // Get the default Session object.
-	     // properties.put("mail.smtp.port", "587");
-	     // properties.put("mail.smtp.auth", "true");
-	     // properties.put("mail.smtp.starttls.enable", "true");
-	      
+      
 	      properties.put("mail.smtp.host", "email-smtp.eu-west-1.amazonaws.com");
 	      //properties.put("mail.smtp.socketFactory.port", "465");
 	      properties.put("mail.smtp.auth", "true");
@@ -116,14 +106,7 @@ public class SearchingPageController {
 	      properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 	      properties.put("mail.smtp.port", "25");
 	      
-	    //  Session session = Session.getDefaultInstance(properties);
-	      
-	      Session session = Session.getDefaultInstance(properties);/*Session.getDefaultInstance(properties,
-	  			new javax.mail.Authenticator() {
-	  				protected PasswordAuthentication getPasswordAuthentication() {
-	  					return new PasswordAuthentication("pauljamesnewell@gmail.com","5803871x");
-	  				}
-	  			});*/
+	      Session session = Session.getDefaultInstance(properties);
 	      
 	      Transport transport = null;
 	      MimeMessage message = null;
@@ -141,9 +124,6 @@ public class SearchingPageController {
 	         log.info("ourEmail : "+ourEmail);
 	         
 	         message.addRecipient(Message.RecipientType.TO, new InternetAddress(ourEmail));
-
-	         // Set Subject: header field
-	         
 
 	         // Now set the actual message
 	         message.setText(senderMessage);
@@ -170,13 +150,10 @@ public class SearchingPageController {
 	         log.info("thankYouMsg :::: "+thankYouMsg);
 	         log.info("image exists? : "+file.exists());
 	         
-	         if(!file.exists()){
-	        	 logoPath =  ConfigHandler.getInstance().readApplicationProperty("urlRootDev")+"/presentationResources/images/";
-	         }
-	         //
-	      //   SMTP Server: mail.authsmtp.com, SMTP Username: ac73099, SMTP Password: ***********, SMTP Ports: 23 25 26 325 2525, SMTP SSL / TLS: Yes
-	         
-	         
+//	         if(!file.exists()){
+//	        	 logoPath =  ConfigHandler.getInstance().readApplicationProperty("urlRootDev")+"/presentationResources/images/";
+//	         }
+
 	         thankYouMsg = thankYouMsg.replace(":path:", logoPath);
 	         thankYouMsg = thankYouMsg.replace(":name:", name);
 	         
@@ -185,10 +162,8 @@ public class SearchingPageController {
 	         message.setFrom(new InternetAddress("pauljamesnewell@gmail.com")); //info@honeybadgerit.net
 	         message.addRecipient(Message.RecipientType.TO, new InternetAddress(sendersEmail));
 	         message.setContent(thankYouMsg, "text/html");
-	         message.setSubject("Thank you for your enquiry");      
-	       
+	         message.setSubject("Thank you for your enquiry");         
 	         transport.sendMessage(message, message.getAllRecipients());
-
 	         
 	      }catch (Exception mex) {
 	    	  log.error(" messed it up : "+mex.getMessage());

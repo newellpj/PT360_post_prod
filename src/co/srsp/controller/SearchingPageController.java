@@ -151,9 +151,10 @@ public class SearchingPageController {
 	         log.info("image exists? : "+file.exists());
 	         
 	         if(!file.exists()){
-	        	 logoPath =  ConfigHandler.getInstance().readApplicationProperty("urlRootDev")+"/presentationResources/images/";
+	        	 //logoPath =  ConfigHandler.getInstance().readApplicationProperty("urlRootDev")+"/presentationResources/images/";
 	         }
 
+	         log.info("logo path is :: "+logoPath);
 	         thankYouMsg = thankYouMsg.replace(":path:", logoPath);
 	         thankYouMsg = thankYouMsg.replace(":name:", name);
 	         

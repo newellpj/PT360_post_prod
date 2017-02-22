@@ -665,9 +665,12 @@ appDemoModule.controller('searchSubmitter', function($scope, $http, $log) {
             $log.info("$scope.groupData : "+$scope.groupData);
 
             $scope.formattedSearchData = '';
-            if(undefined != response.data && response.data['employeeModels'].length > 0 && response.data['employeeModels'] != null){
+            if(undefined != response.data && response.data['employeeModels'].length > 0 &&
+                response.data['employeeModels'] != null && response.data['employeeModels'][0] != null){
 
-                  $log.info("we here again :"+response.data[0]);
+                  $log.info("we here again data length :"+response.data['employeeModels'].length );
+
+
                   for(var i = 0; i < response.data['employeeModels'].length; i++){
 
                       var formattedContent = "<div class='searchSegment responsive'>"+formatSearchContent(response.data['employeeModels'][i], $log)+"</div>"
@@ -682,6 +685,7 @@ appDemoModule.controller('searchSubmitter', function($scope, $http, $log) {
               $('.bookRevList').append("<span style='font-size:1.5em;'>No Records Found </span>");
               $scope.searchFormHide = false;
               $scope.showFacet = false;
+              $('.facetSidebar').css("display", "none");
             }
 
           //  $(dlg).dialog("close");
@@ -699,7 +703,7 @@ appDemoModule.controller('searchSubmitter', function($scope, $http, $log) {
             $log.error("we errored here");
 
              document.getElementById("waiter").style.display = "none";
-              $('.bookRevList').append("<span style='color:red'>There was an error. please wait 30 seconds and try again.</span>");
+              $('.bookRevList').append("<span style='color:red'>There was an error. Please wait 30 seconds and try again.</span>");
              document.getElementById("searchAgain").style.display = "block";
           });
 

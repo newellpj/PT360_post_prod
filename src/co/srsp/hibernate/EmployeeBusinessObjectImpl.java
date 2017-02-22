@@ -368,9 +368,13 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 			matchedList = new ArrayList<EmployeeModel>();
 			int count = 0;
 			for(EmployeeModel model : list){
-				if(companyPos.getPositionName().equalsIgnoreCase(model.getEmpSkillsetsDataModel().get(0).getCurrentPostionName())){
-					count++;
-					matchedList.add(model);
+				
+				if(model != null && model.getEmpSkillsetsDataModel() != null && model.getEmpSkillsetsDataModel().size() > 0){
+				
+					if(companyPos.getPositionName().equalsIgnoreCase(model.getEmpSkillsetsDataModel().get(0).getCurrentPostionName())){
+						count++;
+						matchedList.add(model);
+					}
 				}
 			} 
 			facetModel = new FacetModel();
@@ -394,10 +398,13 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 			int count = 0;
 			for(EmployeeModel model : list){
 				
-				for(EmployeeSkillsetDataModel skillsetDataModel : model.getEmpSkillsetsDataModel()){
-					if(skillset.getSkillsetName().equalsIgnoreCase(skillsetDataModel.getSkillsetName())){
-						count++;
-						matchedList.add(model); //may add the same 
+				if(model != null && model.getEmpSkillsetsDataModel() != null && model.getEmpSkillsetsDataModel().size() > 0){
+				
+					for(EmployeeSkillsetDataModel skillsetDataModel : model.getEmpSkillsetsDataModel()){
+						if(skillset.getSkillsetName().equalsIgnoreCase(skillsetDataModel.getSkillsetName())){
+							count++;
+							matchedList.add(model); //may add the same 
+						}
 					}
 				}
 			} 

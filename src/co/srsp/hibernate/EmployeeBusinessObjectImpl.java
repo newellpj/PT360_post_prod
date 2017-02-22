@@ -339,7 +339,7 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 				
 				log.info("model here is : "+model);
 				
-				if(model.getEmpSkillsetsDataModel() != null && model.getEmpSkillsetsDataModel().size() > 0){
+				if(model != null && model.getEmpSkillsetsDataModel() != null && model.getEmpSkillsetsDataModel().size() > 0){
 					if(orgDept.getDeptName().equalsIgnoreCase(model.getEmpSkillsetsDataModel().get(0).getDepartmentName())){
 						count++;				
 						matchedList.add(model);

@@ -55,7 +55,7 @@ function displayFacetCheckboxSelection(){
              success: function(data) {
 
                  console.log("data length returned ::: "+data.length);
-                 employeeSearchData = data; 
+                 employeeSearchData = data;
                   reAddSarchContent(data);
 
                  },
@@ -276,8 +276,8 @@ function attachScroll(data){
    $( window ).scroll(function() {
 
 
-      console.log($(window).scrollTop()+' R: '+$(window).height());
-      console.log(getDocHeight()+": "+document.body.scrollHeight);
+  //    console.log($(window).scrollTop()+' R: '+$(window).height());
+    //  console.log(getDocHeight()+": "+document.body.scrollHeight);
 
         if(!facetChecked){
             if(($(window).scrollTop() + $(window).height()) >= getDocHeight()) {

@@ -9,8 +9,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.jms.JMSException;
 import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -37,6 +39,7 @@ import co.srsp.hibernate.orm.CompanyPositions;
 import co.srsp.hibernate.orm.Employee;
 import co.srsp.hibernate.orm.EmployeeSkillset;
 import co.srsp.hibernate.orm.OrgDepartment;
+import co.srsp.jms.DurableSubscriber;
 import co.srsp.rss.model.ValueNamePair;
 import co.srsp.service.EmployeeDataService;
 import co.srsp.viewmodel.EmployeeFacetWrapperModel;
@@ -46,6 +49,30 @@ import co.srsp.viewmodel.EmployeeModel;
 public class SearchingPageController {
 
 	private final static Logger log = Logger.getLogger(SearchingPageController.class); 
+	
+	
+	@PostConstruct
+	public void init() {
+		try{
+			DurableSubscriber.getInstance("webAppSubscriber1", "webAppPreferencesNotifier", "webAppSubscriberDurable");
+		}catch(JMSException je){
+			je.printStackTrace();
+			log.error("failed to instantiate durable subscriber post construct : "+je.getMessage());
+		}
+	}
+	
+	@PreDestroy
+	public void destroy(){
+		try{
+			DurableSubscriber ds = DurableSubscriber.getInstance("webAppSubscriber1", "webAppPreferencesNotifier", "webAppSubscriberDurable");
+			ds.removeDurableSubscriber();
+			ds.closeConnection();
+		}catch(JMSException je){
+			log.error("error when closing connections : "+je.getMessage());
+			je.printStackTrace();
+		}
+	}
+
 	
 	@RequestMapping(value = { "/trackerHome"}, method = RequestMethod.GET)
 	public ModelAndView welcomePage() {

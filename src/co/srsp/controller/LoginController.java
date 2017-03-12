@@ -30,6 +30,7 @@ public class LoginController implements AuthenticationSuccessHandler, Authentica
 	private String defaultTargetUrl;
 
 
+
 	@RequestMapping(value = { "/"}, method = RequestMethod.GET)
 	public ModelAndView welcomePage() {
 		log.info("login code");

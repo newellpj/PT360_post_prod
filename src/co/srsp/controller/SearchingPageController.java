@@ -53,24 +53,24 @@ public class SearchingPageController {
 	
 	@PostConstruct
 	public void init() {
-		try{
-			DurableSubscriber.getInstance("webAppSubscriber1", "webAppPreferencesNotifier", "webAppSubscriberDurable");
-		}catch(JMSException je){
-			je.printStackTrace();
-			log.error("failed to instantiate durable subscriber post construct : "+je.getMessage());
-		}
+//		try{
+//			DurableSubscriber.getInstance("webAppSubscriber1", "webAppPreferencesNotifier", "webAppSubscriberDurable");
+//		}catch(JMSException je){
+//			je.printStackTrace();
+//			log.error("failed to instantiate durable subscriber post construct : "+je.getMessage());
+//		}
 	}
 	
 	@PreDestroy
 	public void destroy(){
-		try{
-			DurableSubscriber ds = DurableSubscriber.getInstance("webAppSubscriber1", "webAppPreferencesNotifier", "webAppSubscriberDurable");
-			ds.removeDurableSubscriber();
-			ds.closeConnection();
-		}catch(JMSException je){
-			log.error("error when closing connections : "+je.getMessage());
-			je.printStackTrace();
-		}
+//		try{
+//			DurableSubscriber ds = DurableSubscriber.getInstance("webAppSubscriber1", "webAppPreferencesNotifier", "webAppSubscriberDurable");
+//			ds.removeDurableSubscriber();
+//			ds.closeConnection();
+//		}catch(JMSException je){
+//			log.error("error when closing connections : "+je.getMessage());
+//			je.printStackTrace();
+//		}
 	}
 
 	

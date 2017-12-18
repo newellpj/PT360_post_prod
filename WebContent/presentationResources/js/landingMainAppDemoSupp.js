@@ -281,11 +281,11 @@ function attachScroll(data){
 
         if(!facetChecked){
             if(($(window).scrollTop() + $(window).height()) >= getDocHeight()) {
-                  console.log("1 bottom bitch : "+employeeSearchData);
+                  console.log("1 bottom  : "+employeeSearchData);
                if(employeeSearchData != undefined && employeeSearchData.length > 0){
-                        console.log("2 bottom bitch : ");
-                   if($('.ajax-loader-2').html() == undefined || $('.ajax-loader-2').html() == ''){
-                          console.log("3 bottom bitch : ");
+                        console.log("2 bottom  : ");
+                   if($('.ajax-loader-2').html() == undefined || $('.ajax-loader-2').html() == '' ){
+                          console.log("3 bottom  : ");
                           $('.resultsSection').append("<center><div class='ajax-loader-2'> </div></center>");
                           paginateHere();
                    }
@@ -298,6 +298,6 @@ function attachScroll(data){
 
  function detachScroll(){
       $( window ).scroll(function(){
-
+    	  console.log("detached scrolling  : ");
       });
  }

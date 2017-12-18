@@ -34,7 +34,6 @@
    div.quote2.responsive{
    	  font-size: 1.7rem;
    		font-style: italic;
-
    }
 
 }
@@ -68,12 +67,15 @@
     height: 155px;
  }
 
-  contactForm.responsive{
-    margin-left: 65%;
-    margin-top: -50%;
+  form.contactForm.responsive{
+    margin-left: 55%;
+    margin-top: -65%;
     margin-bottom: 5%;
     position: static;
   }
+  
+
+  
 
   .contactImg.responsive img{
      width: 240px;
@@ -109,12 +111,35 @@
   .pageHeaderLogo.responsive{
   		width:50%;
   }
+  
 }
+
+@media screen and (max-width:1350px){
+  div.carouselAndBuzzSection.responsive{
+     margin-top:-75%;
+
+  }
+  
+  form.contactForm.responsive{
+    margin-left: 55%;
+    margin-top: -65%;
+    margin-bottom: 5%;
+    position: static;
+  }
+}
+
 
 @media screen and (max-width:1300px){
   div.carouselAndBuzzSection.responsive{
      margin-top:-75%;
 
+  }
+  
+  form.contactForm.responsive{
+    margin-left: 55%;
+    margin-top: -65%;
+    margin-bottom: 5%;
+    position: static;
   }
 }
 
@@ -496,6 +521,10 @@
   .contactImg.responsive img{
      margin-left: 10%;
   }
+  
+  .searchBook.responsive{
+    width:auto;
+  }
 
 }
 
@@ -509,6 +538,9 @@
     margin-top: 2%;
   }
 
+  .searchBook.responsive{
+    width:auto;
+  }
 
   section.responsive{
     margin-left: -20%;
@@ -519,6 +551,10 @@
 @media screen and (max-width:350px){
   .contactImg.responsive img{
      margin-left: 1%;
+  }
+  
+    .searchBook.responsive{
+    width:auto;
   }
 
 }

@@ -8,7 +8,8 @@
 
     appDemoModule.component('appPageDemo', {
       template: `<div ng-controller="searchPageController" class="demo responsive">
-       <div class="searchingInProgressItems responsive"><button id="searchAgain" class="responsive resetSearch" ng-click="resetTheSearch()"> Search again? </button>
+       <div class="searchingInProgressItems responsive">
+       <button id="searchAgain" class="responsive resetSearch" ng-click="resetTheSearch()"> Search again? </button>
        <div id="waiter" class="ajax-loader-2a responsive"><div style="float:right; min-width:120px; margin-top:35%;">Searching...</div></div></div>
       	<form id="searchForm" name="searchForm"  commandName="bookReviewsModel" ng-hide="searchFormHide">
 

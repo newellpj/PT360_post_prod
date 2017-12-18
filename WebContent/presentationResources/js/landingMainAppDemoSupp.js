@@ -166,7 +166,9 @@ function formatFacetContent(groupData, initialemployeeModelDataReturned){
 
 
 function resetFacetMarkup(){
+	console.log("resetFacetMarkup");
 	$('.groupData').remove();
+	facetChecked = false;
 }
 
 function matchSideBarToSearchResultsSection(){
@@ -278,7 +280,7 @@ function attachScroll(data){
 
   //    console.log($(window).scrollTop()+' R: '+$(window).height());
     //  console.log(getDocHeight()+": "+document.body.scrollHeight);
-
+	   console.log("facetChecked : "+facetChecked);
         if(!facetChecked){
             if(($(window).scrollTop() + $(window).height()) >= getDocHeight()) {
                   console.log("1 bottom  : "+employeeSearchData);

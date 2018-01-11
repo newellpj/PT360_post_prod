@@ -40,14 +40,38 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 		session.close();
 	}
 
+	
+	public Employee getEmployeeById(String id){
+		Session session = this.getSessionFactory().openSession();
+		return (Employee)session.get(Employee.class, new Integer(id));
+//		StringBuffer sqlAppender = new StringBuffer();
+//		sqlAppender.append("from "+Employee.class.getName()+" where ");
+//		sqlAppender.append("idemployee = '%"+id); 
+//		
+//		List<Employee> list = session.createQuery(sqlAppender.toString()).list();
+//		return list.get(0);
+	}
+	
 	@Override
 	@Transactional
-	public void update(Employee employee) {
+	public boolean update(Employee employee) {
 	
-		Session session = this.getSessionFactory().openSession();
-		session.update(employee);
-		session.flush();
-		session.close();
+		Session session = null;
+		
+		try{
+			session = this.getSessionFactory().openSession();
+			session.update(employee);
+		}catch(Exception e){
+			e.printStackTrace();
+			return false;
+		}
+		
+		if(session != null){
+			session.flush();
+			session.close();
+		}
+		
+		return true;
 	}
 
 	@Override
@@ -292,7 +316,10 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 		log.info("sql to exec : "+sqlAppender.toString());
 		
 		Session session = this.getSessionFactory().openSession();	
+		log.info("session: "+session);
 		List<Employee> list = session.createQuery(sqlAppender.toString()).setFirstResult(offset).setMaxResults(numberOfRecords).list();
+		
+		log.info("list size returned :::: "+list);
 		return list;
 	}
 	

@@ -12,7 +12,7 @@ import co.srsp.viewmodel.EmployeeModel;
 
 public interface EmployeeBusinessObject {
 	public void save(Employee employee);
-	public void update(Employee employee);
+	public boolean update(Employee employee);
 	public void delete(Employee employee);
 	
 	public List<Employee> findEmployeeBySurnameOnly(String surname, int offset, int numberOfRecords);
@@ -48,5 +48,7 @@ public interface EmployeeBusinessObject {
 	public List<CompanyPositions> getCompanyPositions();
 	
 	public List<OrgDepartment> getOrgDepts();
+	
+	public Employee getEmployeeById(String id);
 }
 

@@ -460,8 +460,7 @@ public class SearchingPageController {
 		
 		list = wrapperModel.getEmployeeModels();
 		
-		if(list.size() > numRecordsToPaginate){
-			
+		if(list.size() > numRecordsToPaginate){		
 			request.getSession().setAttribute(SessionConstants.EMPLOYEE_FULL_PROFILE_LIST, list);
 		}else{
 			request.getSession().setAttribute(SessionConstants.EMPLOYEE_FULL_PROFILE_LIST, null); //check for null when paginating and return nothing if null
@@ -496,7 +495,7 @@ public class SearchingPageController {
 		
 		EmployeeModel empModel = new EmployeeModel();
 		
-		ObjectMapper mapper = new ObjectMapper();
+		ObjectMapper mapper = new ObjectMapper(); //json object mapper provided by jackson
 		
 		try{
 			empModel = mapper.readValue(empModelStr, EmployeeModel.class); //converting json data back into the java object

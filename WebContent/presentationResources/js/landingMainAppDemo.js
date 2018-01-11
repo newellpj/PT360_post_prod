@@ -15,7 +15,7 @@
 
 
 				<div class="surnameAndDept responsive" >
-					<input ng-model="employeeName" id="employeeName"  placeholder="Employee surname..."  type='text' name='employeeName' style="width:40%;">
+					<input autocomplete="false" ng-model="employeeName" id="employeeName"  placeholder="Employee surname..."  type='text' name='employeeName' style="width:40%;">
 					<input id="deptCheck" type="checkbox"  ng-model="deptCheck" class="checks responsive" name="deptCheck" value="deptCheck" ng-click="deptHide = !deptHide" />Department
 					<select ng-model="deptSelect.selectedOption" class="depSelect responsive" ng-hide="deptHide" style="width:30%; margin-left:1.7em; " id="departSelect"
 							ng-options="option.name for option in deptSelect.availableOptions track by option.value">
@@ -27,7 +27,7 @@
 						   </ul>
 				</div>
 				<div class="firstnamePosition responsive">
-					<input ng-model="empFirstName" id="empFirstName"  placeholder="Employee first name..." style="width:40%;" type='text' name='empFirstName' />
+					<input autocomplete="false" ng-model="empFirstName" id="empFirstName"  placeholder="Employee first name..." style="width:40%;" type='text' name='empFirstName' />
 					<input id="positionCheck" type="checkbox" class="checks responsive" ng-model="positionCheck"  name="positionCheck" value="positionCheck" ng-click="positionHide = !positionHide" />Position
 					<select  ng-model="positionSelect.selectedOption" name="posText" ng-hide="positionHide" class="positionSelect responsive" style="width:30%; margin-left:0.4em;"
           id="positionSelect"
@@ -40,7 +40,7 @@
 					  </ul>
 				</div>
 				<div class="givenNamesSkillset responsive">
-					<input ng-model="empGivenNames" id="empGivenNames"  placeholder="Employee given names..." style="width:40%;" type='text' name='empGivenNames' />
+					<input autocomplete="false" ng-model="empGivenNames" id="empGivenNames"  placeholder="Employee given names..." style="width:40%;" type='text' name='empGivenNames' />
 					<input id="skillsetCheck" ng-model="skillsetCheck" class="checks responsive" type="checkbox" name="skillsetCheck" value="skillsetCheck" ng-click="skillsetHide = !skillsetHide" />Skillset
 					<select ng-model="skillsetSelect.selectedOption" ng-hide="skillsetHide" name="skillSelect" class="skillsetSelect responsive" style="width:30%;" id="skillsetSelect"
 							ng-options="option.name for option in skillsetSelect.availableOptions track by option.value" >
@@ -401,8 +401,6 @@ $scope.skillsetSelect = [];
           //  console.log("data returned "+data[0]['employeeName']);
             console.log("data length returned "+response.data.length);
             console.log("data at 0 "+response.data[0]['employeeFirstName']);
-
-
 
              $scope.data = response.data;
              searchedDataSet = response.data;

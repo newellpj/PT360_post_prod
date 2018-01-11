@@ -8,6 +8,7 @@ import co.srsp.hibernate.orm.CompanyPositions;
 import co.srsp.hibernate.orm.EmployeeSkillset;
 import co.srsp.hibernate.orm.OrgDepartment;
 
+
 public class EmployeeModel {
 	
 	private Integer idemployee;

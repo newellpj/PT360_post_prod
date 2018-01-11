@@ -32,6 +32,37 @@ public class EmployeeDataService {
 		return employeeBusinessObject.findEmployeePerformanceDetails(empModel);
 	}
 	
+	public boolean updateEmployee(String id, HashMap<String, String> fieldValuePairs){
+
+		Employee employee = new Employee();
+		
+		for(String key : fieldValuePairs.keySet()){
+			try{
+				
+				String s1 = String.valueOf(key.charAt(0)).toUpperCase();
+                String capitalFirstChar = s1 + key.substring(1);
+				System.out.println("capitalFirstChar  :::: " + capitalFirstChar);
+				
+				java.lang.reflect.Method method = employee.getClass().
+					getDeclaredMethod("set"+capitalFirstChar, new Class[] {});
+			
+				String value = (fieldValuePairs.get(key) != null) ? fieldValuePairs.get(key) : "";
+				Object obj = method.invoke(employee, value);
+				
+				System.out.println("emp surname : "+employee.getEmployeeSurname());
+				
+				
+			}catch(Throwable t){
+				t.printStackTrace();
+				System.out.println("we in here ");
+			}
+		}
+		
+		
+		
+		return employeeBusinessObject.update(employee);
+	}
+	
 	
 	public List<Employee> getAllEmployeesPaginated(int startOffset, int numberOfRecords){
 		
@@ -40,6 +71,10 @@ public class EmployeeDataService {
 	
 	public  List<EmployeeModel> getAllEmployeesFullProfile(Integer empID, int offset, int numberOfRecords){
 		return employeeBusinessObject.getAllEmployeesFullProfile(empID, offset, numberOfRecords);
+	}
+	
+	public Employee getEmployeeById(String idEmployee){
+		return employeeBusinessObject.getEmployeeById(idEmployee);
 	}
 	
 	

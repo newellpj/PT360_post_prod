@@ -98,10 +98,9 @@ public class PublicService {
 	
 	@GET
 	@Path("/updateEmployee/{param}")
-	public boolean updateEmployee(@PathParam("param") String nameValuePairs){
-		EmployeeDataService eds = new EmployeeDataService();	
-		StringTokenizer st = new StringTokenizer("-");
-			
+	public EmployeeModel updateEmployee(@PathParam("param") String nameValuePairs){
+		EmployeeDataService eds = new EmployeeDataService();			
+		StringTokenizer st = new StringTokenizer(nameValuePairs, "-");		
 		int count = 1;	
 		HashMap<String, String> nameValuesToUpdate = new HashMap<String, String>();
 		
@@ -114,19 +113,52 @@ public class PublicService {
 				
 				//even numbered value
 				value = st.nextElement().toString();
+				log.info("value going in : "+value);
+				log.info("fieldName going in : "+fieldName);
 				nameValuesToUpdate.put(fieldName, value);
 			}else{
 				//the odd numbered value
 				fieldName = st.nextElement().toString();
+				log.info("fieldName : "+fieldName);
 			}
 			count++;
 			
 		}
-			
-			eds.updateEmployee(nameValuesToUpdate.get("idemployee"), nameValuesToUpdate);
 		
 		
-		return true;
+	    Employee employee = eds.getEmployeeById(nameValuesToUpdate.get("idemployee"));
+	    
+	    EmployeeModel model = new EmployeeModel();
+	    
+	    if(employee != null){
+	    	employee = eds.updateEmployee(nameValuesToUpdate.get("idemployee"), nameValuesToUpdate, employee);	
+	    }else{
+	        employee = new Employee();
+	        //mock up data for now - not important that users cannot create age first name etc - only testbed
+	        employee.setEmployeeFirstName("John");
+	        //surname should already be set reflectively in above code
+	        employee.setEmployeeGender("Male");
+	        employee.setEmployeeAge("28");
+	    	employee = eds.addEmployee(employee);
+	    }
+	    
+	    model.setEmployeeAddress(employee.getEmployeeAddress());
+		model.setEmployeeSurname(employee.getEmployeeSurname());
+		model.setEmployeeAge(employee.getEmployeeAge());
+		model.setEmployeeFirstName(employee.getEmployeeFirstName());
+		model.setIdemployee(employee.getIdemployee());
+		
+		return model;
+	}
+	
+	@GET
+	@Path("/deleteEmployee/{param}")
+	public boolean deleteEmployee(@PathParam("param") String id){
+		EmployeeDataService eds = new EmployeeDataService();
+		Employee employee = new Employee();
+		employee.setIdemployee(new Integer(id));
+		
+		return eds.deleteEmployee(employee);
 	}
 	
 	@GET

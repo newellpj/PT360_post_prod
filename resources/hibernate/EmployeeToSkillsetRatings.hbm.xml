@@ -14,5 +14,6 @@
         <many-to-one name="employeeSkillset" class="co.srsp.hibernate.orm.EmployeeSkillset" fetch="select">
             <column name="idemployee_skillset" />
         </many-to-one>
+
     </class>
 </hibernate-mapping>

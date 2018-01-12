@@ -11,9 +11,9 @@ import co.srsp.viewmodel.EmployeeFacetWrapperModel;
 import co.srsp.viewmodel.EmployeeModel;
 
 public interface EmployeeBusinessObject {
-	public void save(Employee employee);
+	public Employee save(Employee employee);
 	public boolean update(Employee employee);
-	public void delete(Employee employee);
+	public boolean delete(Employee employee);
 	
 	public List<Employee> findEmployeeBySurnameOnly(String surname, int offset, int numberOfRecords);
 	

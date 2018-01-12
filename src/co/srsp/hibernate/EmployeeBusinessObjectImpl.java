@@ -15,8 +15,8 @@ import co.srsp.config.ConfigHandler;
 import co.srsp.hibernate.orm.CompanyPositions;
 import co.srsp.hibernate.orm.Employee;
 import co.srsp.hibernate.orm.EmployeeSkillset;
+import co.srsp.hibernate.orm.EmployeeToSkillsetRatings;
 import co.srsp.hibernate.orm.OrgDepartment;
-import co.srsp.rss.model.ValueNamePair;
 import co.srsp.viewmodel.EmployeeFacetWrapperModel;
 import co.srsp.viewmodel.EmployeeModel;
 import co.srsp.viewmodel.EmployeeSkillsetDataModel;
@@ -33,23 +33,46 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 
 	@Override
 	@Transactional
-	public void save(Employee employee) {
-		Session session = this.getSessionFactory().openSession();
-		session.save(employee);
-		session.flush();
-		session.close();
+	public Employee save(Employee employee) {
+
+		Session session = null;
+		
+		try{
+			session = this.getSessionFactory().openSession();
+			Integer id = (Integer)session.save(employee);
+			employee.setIdemployee(id);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}finally{	
+			if(session != null){
+				session.flush();
+				session.close();
+			}
+		}
+		
+        return employee;	
 	}
 
 	
 	public Employee getEmployeeById(String id){
-		Session session = this.getSessionFactory().openSession();
-		return (Employee)session.get(Employee.class, new Integer(id));
-//		StringBuffer sqlAppender = new StringBuffer();
-//		sqlAppender.append("from "+Employee.class.getName()+" where ");
-//		sqlAppender.append("idemployee = '%"+id); 
-//		
-//		List<Employee> list = session.createQuery(sqlAppender.toString()).list();
-//		return list.get(0);
+		
+		Session session = null;
+		
+		try{
+			session = this.getSessionFactory().openSession();
+			return (Employee)session.get(Employee.class, new Integer(id));
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{	
+			if(session != null){
+				session.flush();
+				session.close();
+			}
+			
+		}
+
+       return new Employee();
 	}
 	
 	@Override
@@ -60,26 +83,68 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 		
 		try{
 			session = this.getSessionFactory().openSession();
-			session.update(employee);
+			session.update(employee);	
 		}catch(Exception e){
 			e.printStackTrace();
 			return false;
-		}
-		
-		if(session != null){
-			session.flush();
-			session.close();
+		}finally{	
+			if(session != null){
+				session.flush();
+				session.close();
+			}
 		}
 		
 		return true;
 	}
 
 	@Override
-	public void delete(Employee employee) {
-		Session session = this.getSessionFactory().openSession();
-		session.delete(employee);
-		session.flush();
-		session.close();
+	public boolean delete(Employee employee) {
+		
+		Session session = null;
+		
+		try{
+			session = this.getSessionFactory().openSession();
+			EmployeeToSkillsetRatings ratings = new EmployeeToSkillsetRatings();
+			
+			//need to delete employee to skillset ratings row FIRST if one exists.
+			StringBuffer sqlAppender = new StringBuffer();	
+//			sqlAppender.append("select ets.idemployee_to_skillset, ets.idemployee_skillset, "+
+//			" ets.idemployee_to_skillset_ratings, ets.idemployee from employee_to_skillset_ratings ets "
+//			+ " where idemployee = "+employee.getIdemployee());
+			
+			
+			//sqlAppender.append(" idemployee = "+employee.getIdemployee()); 
+			session.createSQLQuery("delete from employee_to_skillset_ratings "+
+			    " where idemployee = "+employee.getIdemployee()).executeUpdate();
+			
+			int count = 0;
+			
+//			for(Object[] object : list){
+//				ratings = new EmployeeToSkillsetRatings();
+//				ratings.setIdemployeeToSkillsetRatings(Integer.parseInt(object[0].toString()));
+//				empModel.setIdemployee(Integer.parseInt(obj[0].toString()));
+//				System.out.println("ratings emp id : "+Integer.parseInt(object[3].toString()));
+//				System.out.println("ratings skillset id : "+ratings.getIdemployeeToSkillsetRatings());
+//				System.out.println("ratings emp id : "+ratings.getIdemployee());
+//				System.out.println("count: "+count);
+//				count++;
+//				session.delete(ratings);
+//			}
+			System.out.println("1 :::::::::::::::: ");
+			session.delete(employee);
+			System.out.println("2 :::::::::::::::: ");
+		}catch(Exception e){
+			System.out.println("in here");
+			e.printStackTrace();
+			return false;
+		}finally{	
+			if(session != null){
+				session.flush();
+				session.close();
+			}
+		}
+		
+		return true;
 	}
 
 	@Override
@@ -147,7 +212,7 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 	}
 	
 	
-	 
+	 //private EmployeeToSkillsetRatings buildSkillsetRatingsEntity
 	
 	/**
 	 * when we already have the employee model build a list of supplementary data

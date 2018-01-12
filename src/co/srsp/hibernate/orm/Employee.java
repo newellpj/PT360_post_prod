@@ -151,5 +151,11 @@ public class Employee implements java.io.Serializable {
 	public void setEmployeeToSkillsetRatingses(Set employeeToSkillsetRatingses) {
 		this.employeeToSkillsetRatingses = employeeToSkillsetRatingses;
 	}
+	
+	@Override
+	public String toString(){
+		return this.getEmployeeSurname() +" : "+
+		this.getIdemployee() + " : "+this.getEmployeeSurname();	
+	}
 
 }

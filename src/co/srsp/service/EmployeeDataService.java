@@ -1,5 +1,6 @@
 package co.srsp.service;
 
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 
@@ -32,9 +33,11 @@ public class EmployeeDataService {
 		return employeeBusinessObject.findEmployeePerformanceDetails(empModel);
 	}
 	
-	public boolean updateEmployee(String id, HashMap<String, String> fieldValuePairs){
-
-		Employee employee = new Employee();
+	public Employee addEmployee(Employee employee){
+		return employeeBusinessObject.save(employee);
+	}
+	
+	public Employee updateEmployee(String id, HashMap<String, String> fieldValuePairs, Employee employee){
 		
 		for(String key : fieldValuePairs.keySet()){
 			try{
@@ -43,11 +46,29 @@ public class EmployeeDataService {
                 String capitalFirstChar = s1 + key.substring(1);
 				System.out.println("capitalFirstChar  :::: " + capitalFirstChar);
 				
-				java.lang.reflect.Method method = employee.getClass().
-					getDeclaredMethod("set"+capitalFirstChar, new Class[] {});
+				Method methodToInvoke = null;
+				
+				 for (Method method : employee.getClass().getMethods()) {
+				    if (method.getName().equals("set"+capitalFirstChar)) {
+				    	methodToInvoke = method;
+				    	break;
+				    }
+				}
+				
+//				java.lang.reflect.Method method = employee.getClass().
+//					getDeclaredMethod("set"+capitalFirstChar, new Class[] {});
 			
 				String value = (fieldValuePairs.get(key) != null) ? fieldValuePairs.get(key) : "";
-				Object obj = method.invoke(employee, value);
+				System.out.println("value to set : "+value);
+				System.out.println("method to invoke : "+methodToInvoke.getName());
+				
+				Object obj = null;
+				
+				if(methodToInvoke.getName().toLowerCase().contains("idemployee")){			
+					obj = methodToInvoke.invoke(employee, Integer.valueOf(value));
+				}else{
+					obj = methodToInvoke.invoke(employee, value);
+				}	
 				
 				System.out.println("emp surname : "+employee.getEmployeeSurname());
 				
@@ -58,9 +79,17 @@ public class EmployeeDataService {
 			}
 		}
 		
-		
-		
-		return employeeBusinessObject.update(employee);
+		System.out.println("employee : "+employee.toString());
+				
+		if(employeeBusinessObject.update(employee)){
+			return employee;
+		}else{
+			return null;
+		}
+	}
+	
+	public boolean deleteEmployee(Employee employee){
+		return employeeBusinessObject.delete(employee);
 	}
 	
 	

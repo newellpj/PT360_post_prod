@@ -14,6 +14,7 @@ public class EmployeeToSkillsetRatings implements java.io.Serializable {
 	private Integer idemployeeToSkillsetRatings;
 	private Employee employee;
 	private EmployeeSkillset employeeSkillset;
+	private Integer idemployee;
 
 	public EmployeeToSkillsetRatings() {
 	}
@@ -46,5 +47,15 @@ public class EmployeeToSkillsetRatings implements java.io.Serializable {
 	public void setEmployeeSkillset(EmployeeSkillset employeeSkillset) {
 		this.employeeSkillset = employeeSkillset;
 	}
+
+	public Integer getIdemployee() {
+		return idemployee;
+	}
+
+	public void setIdemployee(Integer idemployee) {
+		this.idemployee = idemployee;
+	}
+	
+	
 
 }

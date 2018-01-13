@@ -125,15 +125,17 @@ public class PublicService {
 			
 		}
 		
-		
-	    Employee employee = eds.getEmployeeById(nameValuesToUpdate.get("idemployee"));
-	    
+		String idEmployee = nameValuesToUpdate.get("idemployee");
+		Employee employee = null;
+
 	    EmployeeModel model = new EmployeeModel();
 	    
-	    if(employee != null){
+	    if(idEmployee != null && !"".equals(idEmployee)){
+		    employee = eds.getEmployeeById(nameValuesToUpdate.get("idemployee"));
 	    	employee = eds.updateEmployee(nameValuesToUpdate.get("idemployee"), nameValuesToUpdate, employee);	
 	    }else{
 	        employee = new Employee();
+	        employee.setEmployeeSurname(nameValuesToUpdate.get("employeeSurname"));
 	        //mock up data for now - not important that users cannot create age first name etc - only testbed
 	        employee.setEmployeeFirstName("John");
 	        //surname should already be set reflectively in above code

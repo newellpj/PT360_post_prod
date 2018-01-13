@@ -108,31 +108,11 @@ public class EmployeeBusinessObjectImpl extends HibernateDaoSupport implements E
 			
 			//need to delete employee to skillset ratings row FIRST if one exists.
 			StringBuffer sqlAppender = new StringBuffer();	
-//			sqlAppender.append("select ets.idemployee_to_skillset, ets.idemployee_skillset, "+
-//			" ets.idemployee_to_skillset_ratings, ets.idemployee from employee_to_skillset_ratings ets "
-//			+ " where idemployee = "+employee.getIdemployee());
-			
-			
-			//sqlAppender.append(" idemployee = "+employee.getIdemployee()); 
 			session.createSQLQuery("delete from employee_to_skillset_ratings "+
 			    " where idemployee = "+employee.getIdemployee()).executeUpdate();
 			
-			int count = 0;
-			
-//			for(Object[] object : list){
-//				ratings = new EmployeeToSkillsetRatings();
-//				ratings.setIdemployeeToSkillsetRatings(Integer.parseInt(object[0].toString()));
-//				empModel.setIdemployee(Integer.parseInt(obj[0].toString()));
-//				System.out.println("ratings emp id : "+Integer.parseInt(object[3].toString()));
-//				System.out.println("ratings skillset id : "+ratings.getIdemployeeToSkillsetRatings());
-//				System.out.println("ratings emp id : "+ratings.getIdemployee());
-//				System.out.println("count: "+count);
-//				count++;
-//				session.delete(ratings);
-//			}
-			System.out.println("1 :::::::::::::::: ");
 			session.delete(employee);
-			System.out.println("2 :::::::::::::::: ");
+
 		}catch(Exception e){
 			System.out.println("in here");
 			e.printStackTrace();
